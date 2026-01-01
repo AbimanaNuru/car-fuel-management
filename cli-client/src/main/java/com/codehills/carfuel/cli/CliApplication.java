@@ -52,8 +52,13 @@ public class CliApplication {
         System.out.println("Creating car...");
         String response = apiClient.createCar(brand, model, year);
 
-        JsonObject car = gson.fromJson(response, JsonObject.class);
-        System.out.println("\n✅ Car created successfully!");
+        JsonObject apiResponse = gson.fromJson(response, JsonObject.class);
+        if (!apiResponse.get("success").getAsBoolean()) {
+            throw new Exception(apiResponse.get("message").getAsString());
+        }
+
+        JsonObject car = apiResponse.get("data").getAsJsonObject();
+        System.out.println("\n✅ " + apiResponse.get("message").getAsString());
         System.out.println("Car ID: " + car.get("id").getAsLong());
         System.out.println("Brand: " + car.get("brand").getAsString());
         System.out.println("Model: " + car.get("model").getAsString());
@@ -67,9 +72,14 @@ public class CliApplication {
         int odometer = Integer.parseInt(command.getRequiredParameter("odometer"));
 
         System.out.println("Adding fuel entry...");
-        apiClient.addFuelEntry(carId, liters, price, odometer);
+        String response = apiClient.addFuelEntry(carId, liters, price, odometer);
 
-        System.out.println("\n✅ Fuel entry added successfully!");
+        JsonObject apiResponse = gson.fromJson(response, JsonObject.class);
+        if (!apiResponse.get("success").getAsBoolean()) {
+            throw new Exception(apiResponse.get("message").getAsString());
+        }
+
+        System.out.println("\n✅ " + apiResponse.get("message").getAsString());
         System.out.println("Liters: " + liters + " L");
         System.out.println("Price: " + price);
         System.out.println("Odometer: " + odometer + " km");
@@ -81,7 +91,12 @@ public class CliApplication {
         System.out.println("Fetching fuel statistics...");
         String response = apiClient.getFuelStats(carId);
 
-        JsonObject stats = gson.fromJson(response, JsonObject.class);
+        JsonObject apiResponse = gson.fromJson(response, JsonObject.class);
+        if (!apiResponse.get("success").getAsBoolean()) {
+            throw new Exception(apiResponse.get("message").getAsString());
+        }
+
+        JsonObject stats = apiResponse.get("data").getAsJsonObject();
 
         System.out.println("\n📊 Fuel Statistics for Car #" + carId);
         System.out.println("═══════════════════════════════════");
