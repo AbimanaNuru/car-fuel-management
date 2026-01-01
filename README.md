@@ -532,50 +532,7 @@ java -version
 rm -rf ~/.m2/repository
 mvn clean install
 ```
-
-### Odometer validation error
-
-**Issue**: "Odometer reading must be greater than the previous reading"
-
-**Solution**: Ensure each new fuel entry has a higher odometer value than the previous one
-
-## 📝 Assignment Requirements Checklist
-
-- ✅ Spring Boot backend with in-memory storage
-- ✅ REST API endpoints (POST /api/cars, GET /api/cars, POST /api/cars/{id}/fuel, GET /api/cars/{id}/fuel/stats)
-- ✅ Manual servlet implementation (GET /servlet/fuel-stats?carId={id})
-- ✅ Servlet extends HttpServlet and overrides doGet
-- ✅ Manual parameter parsing, Content-Type, and status code setting
-- ✅ Servlet uses same CarService instance as REST API
-- ✅ CLI application using java.net.http.HttpClient
-- ✅ CLI commands: create-car, add-fuel, fuel-stats
-- ✅ Proper error handling (404 for invalid IDs, validation)
-- ✅ Code readability with extensive comments
-- ✅ Comprehensive README with setup instructions
-
-## 🎓 Learning Resources
-
-To understand the code better, review these concepts:
-
-1. **Spring Boot Basics**: [Spring Boot Documentation](https://spring.io/projects/spring-boot)
-2. **REST API Design**: [RESTful API Tutorial](https://restfulapi.net/)
-3. **Java Servlets**: [Servlet Tutorial](https://www.oracle.com/java/technologies/servlet-technology.html)
-4. **HTTP Client**: [Java HttpClient Guide](https://openjdk.org/groups/net/httpclient/intro.html)
-5. **Maven**: [Maven Getting Started](https://maven.apache.org/guides/getting-started/)
-
-## 📧 Submission
-
-**Email**: info@code-hills.com
-
-**Include**:
-1. Git repository link
-2. This README.md with instructions
-3. Brief explanation of your approach
-
-**Timeline**: Submit by January 2nd, 2026
-
 ---
 
-**Built with ❤️ for CodeHills Academy**
+**Built by Nuru **
 
-*Good luck with your assessment! Remember to explain the "why" behind every line of code during your interview.*
