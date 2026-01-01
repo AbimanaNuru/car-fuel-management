@@ -1,0 +1,12 @@
+# Spring Boot Configuration
+# This file configures the Spring Boot application
+
+server:
+  # Port number the server will run on
+  # Access the application at http://localhost:8080
+  port: 8080
+
+spring:
+  application:
+    # Application name (appears in logs)
+    name: car-fuel-backend
