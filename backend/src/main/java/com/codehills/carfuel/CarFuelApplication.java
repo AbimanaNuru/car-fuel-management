@@ -19,7 +19,8 @@ public class CarFuelApplication {
     }
 
     @Bean
-    public ServletRegistrationBean<FuelStatsServlet> fuelStatsServlet(FuelStatsServlet servlet) {
+    public ServletRegistrationBean<FuelStatsServlet> fuelStatsServletRegistration() {
+        FuelStatsServlet servlet = new FuelStatsServlet();
         ServletRegistrationBean<FuelStatsServlet> registration = new ServletRegistrationBean<>(servlet,
                 "/servlet/fuel-stats");
         registration.setName("FuelStatsServlet");

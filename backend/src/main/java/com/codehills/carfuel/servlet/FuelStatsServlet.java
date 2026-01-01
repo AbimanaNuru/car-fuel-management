@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.codehills.carfuel.exception.ResourceNotFoundException;
 import com.codehills.carfuel.model.FuelStats;
@@ -16,7 +15,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@Component
 public class FuelStatsServlet extends HttpServlet {
 
     @Autowired
